@@ -12,11 +12,11 @@ public class StudentRestExceptionHandler {
 
         // Add an exception handler using @ExceptionHandler
     @ExceptionHandler
-    public ResponseEntity<StudentErrorResponse> handleException(StudentNotFoundException excep) {
+    public ResponseEntity<StudentErrorResponse> handleException(StudentNotFoundException exception) {
         // create a StudentErrorResponse
         StudentErrorResponse error = new StudentErrorResponse();
         error.setStatus(HttpStatus.NOT_FOUND.value());
-        error.setMessage(excep.getMessage());
+        error.setMessage(exception.getMessage());
         error.setTimeStamp(System.currentTimeMillis());
 
         // return ResponseEntity
